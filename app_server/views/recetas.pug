@@ -1,0 +1,58 @@
+include layout
+
+html
+    head
+        script(src="/javascripts/sidebar2.js")
+
+block content
+    section#portadaQH.sectionRec.imgParallax2
+    .menuSticky
+        .container
+            .row.navB
+                a.btn.btn-light(href='/que-hacemos' role='button' aria-pressed='true')               
+                    svg.bi.bi-arrow-left(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+                        path(fill-rule='evenodd' d='M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z')
+                        
+    .container-fluid.contRec.container       
+        .row.py-5
+            .col-xl-6.col-l-12.col-md-12.col-sm-12.col-12.text-center
+                img.img-fluid.pt-5(src=`/images/portfolio/`+imagen)
+            .col-xl-5.col-l-12.col-md-12.col-sm-12.col-12   
+                div
+                    h1.text-center= title
+                    br
+                    p #{descripcion}
+                    br
+
+        .dVideo
+            video.videoRec(src=`/images/`+video controls)
+        br
+    section#contacto.page-section
+        .container.p-5
+            .row.justify-content-center
+                .col-lg-8.text-center
+                    h2.mt-0 ¡Estemos en contacto!
+                    .divider.my-4
+                    p.text-muted.mb-5
+                        | ¡Déjanos saber cualquier inquietud que hayas tenido, puedes contactarte llamando a este número o mandando un correo electrónico!
+            .row
+                .col-lg-4.ml-auto.text-center.mb-5.mb-lg-0
+                    i.fas.fa-phone.fa-3x.mb-3.text-muted
+                    div +593 (02) 2460600
+                .col-lg-4.mr-auto.text-center
+                    i.fas.fa-envelope.fa-3x.mb-3.text-muted
+                    // Make sure to change the email address in anchor text AND the link below!
+                    a.d-block(href='mailto:energiad@gmail.com') energiad@gmail.com
+                .col-lg-12.text-center.pt-5.social
+                    a.px-3(href='https://www.facebook.com/TupperwareDistribuidoraEnergiaUio' target="blank")
+                        i.fab.fa-facebook
+                    
+                    a.px-3(href='https://www.youtube.com/channel/UCUoalGYa0MtZRB0dFoay0pw' target="blank")
+                        i.fab.fa-youtube
+                    
+                    a.px-3(href='https://www.instagram.com/tupperwareenergia.oficial/' target="blank")
+                        i.fab.fa-instagram
+    // Footer
+    footer#services.imgParallax.footer.bg-light.py-5
+        .container.text-justify
+            h6#footer.text-light.font-weight-bold Copyright &copy; 2020 - Tupperware Distribuidora Energía

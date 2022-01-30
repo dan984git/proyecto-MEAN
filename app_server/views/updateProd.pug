@@ -1,0 +1,127 @@
+include layout
+
+html
+    head
+        script(src="/javascripts/sidebar2.js")
+
+block content
+    section#portadaIT.sectionRec.imgParallax2
+    .menuSticky
+        .container
+            .row.navB
+                .col-lg-1.col-md-1.col-sm-1.col-2
+                    a.btn.btn-light(href='/productos/bazar/lista' role='button' aria-pressed='true')               
+                        svg.bi.bi-arrow-left(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+                            path(fill-rule='evenodd' d='M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z')     
+                .col-lg-11.col-md-11.col-sm-11.col-8
+                    a(href='/productos/new')
+                        button.btn.btn-light(type='button') Agregar producto
+    .contenidoQS
+        br
+        .row.btnAdm
+            h2= title
+        hr
+        .row
+            .col-md-2
+            .col-md-8
+                .card
+                    .card-body
+                        form(action='' method='post' role='form')
+                            .row
+                                .col-sm-12.col-md-6                            
+                                    .form-group
+                                        label(for='nombre') Nombre
+                                        - var eN = errorNombre
+                                        if (eN != null)
+                                            p.errores #{errorNombre}
+                                        input#nombre.form-control(name='nombre' type='text' value=nombre placeholder="Ingrese el nombre del producto")
+                                .col-sm-12.col-md-6                          
+                                    .form-group
+                                        label(for='codigo') Código
+                                        input#nombre.form-control(name='codigo' type='text' value=codigo placeholder="Ingrese el código del producto")
+                            .row
+                                .col-sm-12.col-md-6 
+                                    .form-group
+                                        label(for='precioNormal') Precio Normal
+                                        input#nombre.form-control(name='precioNormal' type='text' value=precioNormal placeholder="Ingrese el precio normal")
+                                .col-sm-12.col-md-6 
+                                    .form-group
+                                        label(for='precioDescuento') Precio Descuento
+                                        input#nombre.form-control(name='precioDescuento' type='text' value=precioDescuento placeholder="Ingrese el precio descuento")
+                            .row
+                                .col-sm-12.col-md-6 
+                                    .form-group
+                                        label(for='capacidad') Capacidad
+                                        input#nombre.form-control(name='capacidad' type='text' value=capacidad placeholder="Ingrese la capacidad")
+                                .col-sm-12.col-md-6 
+                                    .form-group
+                                        label(for='medida') Medida
+                                        input#nombre.form-control(name='medida' type='text' value=medida placeholder="Ingrese la medida")
+                            .row
+                                .col-sm-12.col-md-6 
+                                    .form-group
+                                        label(for='imagen') Imagen
+                                        input#nombre.form-control(name='imagen' type='text' value=imagen placeholder="Ingrese el nombre de la imagen") 
+                                .col-sm-12.col-md-6 
+                                    .form-group
+                                        label(for='semana') Semana
+                                        input#nombre.form-control(name='semana' type='text' value=semana placeholder="Ingrese la semana")
+                            .row
+                                .col-sm-12.col-md-6 
+                                    .form-group
+                                        label(for='stock') Stock
+                                            br
+                                            select(name='stock')
+                                                //option(value='Seleccionar') -- Seleccionar -- 
+                                                option(value='Hay stock') Hay stock
+                                                option(value='No hay stock') No hay stock
+                                .col-sm-12.col-md-6.btnAdmBotones
+                                    button.btn.btn-dark(type='submit') Actualizar producto
+                                    button.btn.btn-danger(type='button' data-toggle='modal' data-target='#borrarProducto')
+                                        | Eliminar Producto
+
+    #borrarProducto.modal.fade(data-backdrop='static' data-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true')
+        .modal-dialog.modal-dialog-scrollables
+            .modal-content.bg-light
+                .modal-header
+                    h5#staticBackdropLabel.modal-title ¿Seguro quieres eliminar el producto?
+                    button.close(type='button' data-dismiss='modal' aria-label='Close')
+                        span(aria-hidden='true') &times;
+                .modal-body
+                    .btnAdm
+                        p.text-justify Este proceso no se proda restaurar.
+                    .btnAdm  
+                        .btnModal
+                            a(href=`/delete/bazar/id/${prodId}`)
+                                button.btn.btn-danger(type='button') Borrar
+                            button.btn.btn-secondary(type='button' data-dismiss='modal') Cancelar
+
+    section#contacto.page-section
+        .container.p-5
+            .row.justify-content-center
+                .col-lg-8.text-center
+                    h2.mt-0 ¡Estemos en contacto!
+                    .divider.my-4
+                    p.text-muted.mb-5
+                        | ¡Déjanos saber cualquier inquietud que hayas tenido, puedes contactarte llamando a este número o mandando un correo electrónico!
+            .row
+                .col-lg-4.ml-auto.text-center.mb-5.mb-lg-0
+                    i.fas.fa-phone.fa-3x.mb-3.text-muted
+                    div +593 (02) 2460600
+                .col-lg-4.mr-auto.text-center
+                    i.fas.fa-envelope.fa-3x.mb-3.text-muted
+                    // Make sure to change the email address in anchor text AND the link below!
+                    a.d-block(href='mailto:energiad@gmail.com') energiad@gmail.com
+                .col-lg-12.text-center.pt-5.social
+                    a.px-3(href='https://www.facebook.com/TupperwareDistribuidoraEnergiaUio' target="blank")
+                        i.fab.fa-facebook
+                    
+                    a.px-3(href='https://www.youtube.com/channel/UCUoalGYa0MtZRB0dFoay0pw' target="blank")
+                        i.fab.fa-youtube
+                    
+                    a.px-3(href='https://www.instagram.com/tupperwareenergia.oficial/' target="blank")
+                        i.fab.fa-instagram
+    // Footer
+    footer#portadaIT.imgParallax.footer.bg-light.py-5
+        .container.text-justify
+            h6#footer.text-light.font-weight-bold Copyright &copy; 2020 - Tupperware Distribuidora Energía

@@ -1,0 +1,33 @@
+<!--<section class='sectionQH imgParallax2' id='portadaQH'>
+    <div id='actividades'></div>
+</section>
+<div class='main-content-area'>
+    <div class='main-left2'>
+        <div class='main-left'>
+            <div class='left-sticky'>
+                <ul>
+                    <li><a class='nav-link js-scroll-trigger' href='#actividades'>Actividades</a></li>
+                    <li><a class='nav-link js-scroll-trigger' href='#historia'>Historia</a></li>
+                    <li><a class='nav-link js-scroll-trigger' href='#premios'>Premios</a></li>
+                    <li><a class='nav-link js-scroll-trigger' href='#contacto'>Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>-->
+    <div class='resume-section d-flex justify-content-center'>
+        <div class='w-100'>
+            <h2 class='mb-5'>Actividades</h2>
+            <div class='calbg' *ngFor='let element of calendario'>
+                <div class='resume-content'>
+                    <h3 class='mb-0'>{{element.dia}}</h3>
+                    <div class='subheading mb-3'>{{element.titulo}}</div>
+                    <p>{{element.descripcion}}</p>
+                    <a href='{{element.link}}' target="_blank">{{element.link}}</a>
+                </div>
+                <div class='resume-date text-md-right'>
+                    <span class='text-primary'>{{element.mes}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<hr class='m-0'>-->

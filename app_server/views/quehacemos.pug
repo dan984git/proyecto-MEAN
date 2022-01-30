@@ -1,0 +1,104 @@
+include layout
+
+block content    
+    section#portadaQH2.sectionQH.imgParallax2
+        #actividades
+    .main-content-area.row
+        .main-left2.col-xl-2
+            .main-left
+                .left-sticky
+                    ul
+                        li
+                            a.nav-link.js-scroll-trigger(href='#actividades') Actividades
+                        li
+                            a.nav-link.js-scroll-trigger(href='#recetas') Recetas
+                        li
+                            a.nav-link.js-scroll-trigger(href='#demostraciones') Demostraciones
+                        li
+                            a.nav-link.js-scroll-trigger(href='#productos') Productos
+                        li
+                            a.nav-link.js-scroll-trigger(href='#contacto') Contacto
+        .container-fluid.col-xl-8
+            #accordion.panel-group.p-5
+                .panel.panel-default
+                    div
+                        br
+                    app-que-hacemos#recetas
+                    br#recetas
+                    hr.m-0
+                    br
+                    .panel-heading
+                        h4.panel-title
+                            a.btn.btn-lg(data-toggle='collapse' data-parent='#accordion' href='#collapse1') Recetas +
+                    #collapse1.panel-collapse.collapse.in
+                        .panel-body
+                            h2 Recetas
+                                div
+                                    br
+                                app-recetas
+                    br#demostraciones
+                    hr.m-0
+                    br
+                .panel.panel-default
+                    .panel-heading
+                        h4.panel-title
+                            a.btn.btn-lg(data-toggle='collapse' data-parent='#accordion' href='#collapse2') Demostraciones +
+                    #collapse2.panel-collapse.collapse
+                        .panel-body
+                            h2 Demostraciones
+                                div
+                                    br
+                                app-demostraciones
+                    br#productos
+                    hr.m-0
+                    br
+                .panel.panel-default
+                    .panel-heading
+                        h4.panel-title
+                            a.btn.btn-lg(data-toggle='collapse' data-parent='#accordion' href='#collapse3') Videos de Productos +
+                    #collapse3.panel-collapse.collapse
+                        .panel-body
+                            h2 Videos de Productos
+                                div
+                                    br
+                                app-videoproductos
+                                br
+
+    section#contacto.page-section
+        .container.p-5
+            .row.justify-content-center
+                .col-lg-8.text-center
+                    h2.mt-0 ¡Estemos en contacto!
+                    .divider.my-4
+                    p.text-muted.mb-5
+                        | ¡Déjanos saber cualquier inquietud que hayas tenido, puedes contactarte llamando a este número o mandando un correo electrónico!
+            .row
+                .col-lg-4.ml-auto.text-center.mb-5.mb-lg-0
+                    i.fas.fa-phone.fa-3x.mb-3.text-muted
+                    div +593 (02) 2460600
+                .col-lg-4.mr-auto.text-center
+                    i.fas.fa-envelope.fa-3x.mb-3.text-muted
+                    // Make sure to change the email address in anchor text AND the link below!
+                    a.d-block(href='mailto:energiad@gmail.com') energiad@gmail.com
+                .col-lg-12.text-center.pt-5.social
+                    a.px-3(href='https://www.facebook.com/TupperwareDistribuidoraEnergiaUio' target="blank")
+                        i.fab.fa-facebook
+                    
+                    a.px-3(href='https://www.youtube.com/channel/UCUoalGYa0MtZRB0dFoay0pw' target="blank")
+                        i.fab.fa-youtube
+                    
+                    a.px-3(href='https://www.instagram.com/tupperwareenergia.oficial/' target="blank")
+                        i.fab.fa-instagram
+    // Footer
+    footer#portadaQH2.imgParallax.footer.bg-light.py-5
+        .container.text-justify
+            h6#footer.text-light.font-weight-bold Copyright &copy; 2020 - Tupperware Distribuidora Energía
+
+    block scripts        
+        script(src='/build/runtime.359d5ee4682f20e936e9.js')
+        script(src='/build/polyfills.bf99d438b005d57b2b31.js')
+        script(src='/build/main.b27714bfa8553d6af380.js')
+
+
+
+

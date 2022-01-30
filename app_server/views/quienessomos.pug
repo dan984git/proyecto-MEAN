@@ -1,0 +1,122 @@
+include layout
+
+html
+    head
+        link(href='https://vjs.zencdn.net/7.8.2/video-js.min.css' rel='stylesheet')
+        script(src='https://vjs.zencdn.net/7.8.2/video.min.js')
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js' integrity='sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW' crossorigin='anonymous')
+
+block content
+    section#portadaQS.sectionQH.imgParallax2
+
+    section.carouselQS.mt-50.section-padding-100
+        .container
+            .row
+                .col-12
+                    .section-heading.text-center.mx-auto
+                        h3 Tupperware
+                        h5 Distribuidora Energía
+            .row.text-center
+                .col-12.col-md-12
+                    p
+                        | Distribuidora Energía es el Distribuidor #1 en ventas de los productos Tupperware en el Ecuador, presente en el mercado ecuatoriano desde el año 2002. Tiempo en el cual ha obtenido importantes reconocimientos como estar dentro de los top 100 del ranking de Distribuidores Tupperware a nivel mundial; así como también el ser reconocido anualmente como el Distribuidor #1 del Ecuador desde el año 2006 en forma consecutiva.
+                .col-12.col-md-12
+                    p
+                        | Estos reconocimientos se los ha logrado brindando verdaderas oportunidades a las familias ecuatorianas al comercializar los productos Tupperware de convertirse en emprendedores independientes, permitiéndoles contar con nuevos ingresos. Distribuidora Energía se ha preocupado de proporcionarles una capacitación constante tanto en el ámbito personal y profesional. Así como en el manejo y promoción de los productos.
+                .col-12.col-md-12
+                    p
+                        | En el transcurso de este tiempo, Distribuidora Energía ha incrementado el número de comerciantes independientes y actualmente tiene presencia en la mayoria de ciudades a nivel nacional. 
+                .col-12.col-md-12
+                    p
+                        | Actualmente, Distribuidora Energía se ha innovado adaptandose a la nueva realidad de la forma de comercializar mediante la capacitación a nuestros emprendedores en el uso y manejo de las herramientas digitales.
+            .row.carouselQS
+                .col-12
+                    #carouselExampleControls.carousel.slide(data-bs-ride='carousel')
+                        .carousel-inner
+                            tbody
+                                each item, elementcar in imgCarousel
+                                    if(elementcar === 0)
+                                        .carousel-item.active
+                                            img.d-block.w-100(src=`/images/${item.imgs}` alt=`${item.alt}`)
+                                    else
+                                        .carousel-item
+                                            img.d-block.w-100(src=`/images/${item.imgs}` alt=`${item.alt}`)
+                        a.carousel-control-prev(href='#carouselExampleControls' role='button' data-bs-slide='prev')
+                            span.carousel-control-prev-icon(aria-hidden='true')
+                            //span.visually-hidden Previous
+                        a.carousel-control-next(href='#carouselExampleControls' role='button' data-bs-slide='next')
+                            span.carousel-control-next-icon(aria-hidden='true')
+                            //span.visually-hidden Next
+
+
+    section.teachers-area.section-padding-0-100
+        .container.dir
+            .row
+                .col-12
+                    .section-heading.text-center.mx-auto
+                        h3 Directoras
+                        h5 Destacadas
+            .row
+                tbody
+                    each element in directoras
+                        // Single Teachers
+                        .col-12.col-sm-6.col-lg-3
+                            .single-teachers-area.text-center.mb-100
+                                // Thumbnail
+                                .teachers-thumbnail
+                                    img(src=`/images/${element.img}` alt='')
+                                // Meta Info
+                                .teachers-info.mt-30
+                                    h5= element.nombre
+                                    span= element.unidad
+                                    p= element.frase
+    .testimonials-area#portadaQS.imgParallax2
+        .container
+            .row
+                .col-12
+                    .section-heading.text-center.mx-auto
+                        h3.text-light Testimonios
+                        span.text-light Estos son algunos testimonios de algunas chicas que trabajan en Tupperware
+            .row
+                tbody
+                    each element in testimoniales
+                        // Single Testimonials Area
+                        .col-12.col-md-12.col-xs-12.d-flex.justify-content-center
+                            .single-testimonial-area.mb-100.d-flex
+                            .testimonial-thumb.mx-5
+                                img(src=`/images/${element.img}` alt='')
+                            .testimonial-content.mx-5
+                                h4= element.nombre
+                                h5
+                                    span= element.unidad
+                                br
+                                video.videoindex.test-video(src=`/images/${element.video}` controls)
+
+    section#contacto.page-section
+        .container.p-5
+            .row.justify-content-center
+                .col-lg-8.text-center
+                    h2.mt-0 ¡Estemos en contacto!
+                    .divider.my-4
+                    p.text-muted.mb-5
+                        | ¡Déjanos saber cualquier inquietud que hayas tenido, puedes contactarte llamando a este número o mandando un correo electrónico!
+            .row
+                .col-lg-4.ml-auto.text-center.mb-5.mb-lg-0
+                    i.fas.fa-phone.fa-3x.mb-3.text-muted
+                    div +593 (02) 2460600
+                .col-lg-4.mr-auto.text-center
+                    i.fas.fa-envelope.fa-3x.mb-3.text-muted
+                    a.d-block(href='mailto:energiad@gmail.com') energiad@gmail.com
+                .col-lg-12.text-center.pt-5.social
+                    a.px-3(href='https://www.facebook.com/TupperwareDistribuidoraEnergiaUio' target="blank")
+                        i.fab.fa-facebook
+                    
+                    a.px-3(href='https://www.youtube.com/channel/UCUoalGYa0MtZRB0dFoay0pw' target="blank")
+                        i.fab.fa-youtube
+                    
+                    a.px-3(href='https://www.instagram.com/tupperwareenergia.oficial/' target="blank")
+                        i.fab.fa-instagram
+    // Footer
+    footer#portadaQS.imgParallax.footer.bg-light.py-5
+        .container.text-justify
+        h6#footer.text-light.font-weight-bold Copyright &copy; 2020 - Tupperware Distribuidora Energía

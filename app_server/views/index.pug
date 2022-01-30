@@ -1,0 +1,119 @@
+include layout
+
+block content
+  .video
+    tbody
+      each element in video
+        video.videoindex(src=`/images/${element.video}` autoplay='' loop='' muted='' poster='')
+        .videoefecto
+  section#about.content-section.bg-light.text-center
+    .container
+      .content-section-heading
+        h3.text-secondary.mb-1 Nuestros servicios
+        h2.mb-5 ¿Qué deseas?
+        .row
+          .col-lg-3.col-md-6.mb-5.mb-lg-0
+            a(href='/productos')
+              span.service-icon.rounded-circle.mx-auto.mb-3
+                i.fas.fa-shopping-cart
+            h4
+              strong Deseas comprar
+            p.text-faded.mb-0 Catálogo Vigente y ofertas
+          .col-lg-3.col-md-6.mb-5.mb-lg-0
+            a(href='/ingresa-a-tupperware')
+              span.service-icon.rounded-circle.mx-auto.mb-3
+                i.fas.fa-money-bill-wave-alt
+            h4
+              strong Deseas vender
+            p.text-faded.mb-0 Inscríbete y vende con nosotros
+          .col-lg-3.col-md-6.mb-5.mb-md-0
+            a(href='/que-hacemos')
+              span.service-icon.rounded-circle.mx-auto.mb-3
+                i.fas.fa-search
+            h4
+              strong Descubre lo que hacemos
+            p.text-faded.mb-0
+              | Videos de productos, Recetas y Demostraciones
+          .col-lg-3.col-md-6
+            a(href='/quienes-somos')
+              span.service-icon.rounded-circle.mx-auto.mb-3
+                i.fas.fa-users
+            h4
+              strong Deseas conocernos
+            p.text-faded.mb-0 Nuestro equipo, testimoniales.
+
+  section#services.content-section.imgParallax.text-white.text-center
+    .container.text-center
+      .row
+        .col-lg-10.mx-auto
+          h2 ¿Quiénes somos?
+          p.lead.mb-5
+            | Distribuidora Energía somos un distribuidor autorizado desde el 2002, comercializamos los productos tupperware y te ofrecemos la oportunidad de emprender en tu propio negocio como comerciante independiente.
+          a.btn.btn-light.btn-lg.js-scroll-trigger(href='/quienes-somos') Ver más
+
+  section#portfolio.content-section
+    .container
+      .content-section-heading.text-center
+        h3.text-secondary.mb-0 Proyectos
+        h2.mb-5 Videos realizados
+      .row.no-gutters
+        .col-lg-6.hover-bg
+          a(href='/que-hacemos#recetas')
+            span.hover-text
+              h2 Recetas
+              p.mb-0 Recetas varias realizadas con los productos tupperware.
+            img.img-fluid(src='images/portfolio-1.jpg' alt='')
+        .col-lg-6.hover-bg
+          a(href='/que-hacemos#productos')
+            span.hover-text
+              h2 Video de productos
+              p.mb-0 Videos de productos que faciliten a entender su funcionamiento.
+            img.img-fluid(src='images/portfolio-3.jpg' alt='')
+        .col-lg-6.hover-bg
+          a(href='/que-hacemos#demostraciones')
+            span.hover-text
+              h2 Demostraciones
+              p.mb-0 Demostraciones de productos para ver los usos y beneficios.
+            img.img-fluid(src='images/portfolio-2.jpg' alt='')
+        .col-lg-6.hover-bg
+          a(href='/quienes-somos#testimonios')
+            span.hover-text
+              h2 Testimonios
+              p.mb-0 ¡Mira que han dicho de nosotros! no te quedes con la duda.
+            img.img-fluid(src='images/portfolio-4.jpg' alt='')
+  section#contact.map
+    iframe(width='100%' height='100%' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7970128548823!2d-78.49400588480242!3d-0.1872523998633803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59baa40af5b85%3A0xc15aab119735b7b!2sAv%20Mariana%20de%20Jesus%20y%2010%20de%20Agosto%20Tupperware%20DISTRIBUIDORA%20ENERG%C3%8DA!5e0!3m2!1ses!2sec!4v1606101576702!5m2!1ses!2sec')
+    br
+    small
+      a(href='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7970128548823!2d-78.49400588480242!3d-0.1872523998633803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59baa40af5b85%3A0xc15aab119735b7b!2sAv%20Mariana%20de%20Jesus%20y%2010%20de%20Agosto%20Tupperware%20DISTRIBUIDORA%20ENERG%C3%8DA!5e0!3m2!1ses!2sec!4v1606101576702!5m2!1ses!2sec')
+    br
+
+  section#contact.page-section
+    .container
+      .row.justify-content-center
+        .col-lg-8.text-center
+          h2.mt-0 ¡Estemos en contacto!
+          .divider.my-4
+          p.text-muted.mb-5
+            | ¡Déjanos saber cualquier inquietud que hayas tenido, puedes contactarte llamando a este número o mandando un correo electrónico!
+      .row
+        .col-lg-4.ml-auto.text-center.mb-5.mb-lg-0
+          i.fas.fa-phone.fa-3x.mb-3.text-muted
+          div +593 (02) 2460600
+        .col-lg-4.mr-auto.text-center
+          i.fas.fa-envelope.fa-3x.mb-3.text-muted
+          // Make sure to change the email address in anchor text AND the link below!
+          a.d-block(href='mailto:energiad@gmail.com') energiad@gmail.com
+        .col-lg-12.text-center.pt-5.social
+          a.px-3(href='https://www.facebook.com/TupperwareDistribuidoraEnergiaUio' target="blank")
+            i.fab.fa-facebook
+        
+          a.px-3(href='https://www.youtube.com/channel/UCUoalGYa0MtZRB0dFoay0pw' target="blank")
+            i.fab.fa-youtube
+        
+          a.px-3(href='https://www.instagram.com/tupperwareenergia.oficial/' target="blank")
+            i.fab.fa-instagram
+  // Footer
+  footer#services.imgParallax.footer.bg-light.py-5
+    .container.text-justify
+      h6#footer.text-light.font-weight-bold Copyright &copy; 2020 - Tupperware Distribuidora Energía

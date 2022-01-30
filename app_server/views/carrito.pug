@@ -1,0 +1,213 @@
+include layout
+
+html
+    head
+        link(href='https://vjs.zencdn.net/7.8.2/video-js.min.css' rel='stylesheet')
+        script(src='https://vjs.zencdn.net/7.8.2/video.min.js')
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js' integrity='sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW' crossorigin='anonymous')
+        script(src="/javascripts/sidebar2.js")  
+
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+block content
+    section#portadaIT.sectionRec.imgParallax2
+    .menuSticky
+        .container
+            .row.navB
+                a.btn.btn-light(href='/productos/bazar/lista' role='button' aria-pressed='true')               
+                    svg.bi.bi-arrow-left(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+                        path(fill-rule='evenodd' d='M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z')
+              
+
+    
+
+
+    section#contacto.page-section
+        .container.p-5
+            .row.justify-content-center
+                .col-lg-8.text-center
+                    h2.mt-0 ¡Estemos en contacto!
+                    .divider.my-4
+                    p.text-muted.mb-5
+                        | ¡Déjanos saber cualquier inquietud que hayas tenido, puedes contactarte llamando a este número o mandando un correo electrónico!
+            .row
+                .col-lg-4.ml-auto.text-center.mb-5.mb-lg-0
+                    i.fas.fa-phone.fa-3x.mb-3.text-muted
+                    div +593 (02) 2460600
+                .col-lg-4.mr-auto.text-center
+                    i.fas.fa-envelope.fa-3x.mb-3.text-muted
+                    // Make sure to change the email address in anchor text AND the link below!
+                    a.d-block(href='mailto:energiad@gmail.com') energiad@gmail.com
+    // Footer
+    footer#portadaIT.imgParallax.footer.bg-light.py-5
+        .container.text-justify
+            h6#footer.text-light.font-weight-bold Copyright &copy; 2020 - Tupperware Distribuidora Energía
+
+
+//head
+    script.
+        window.onload = function () {
+        // Variables
+        let baseDeDatos = [
+        {
+        id: 1,
+        nombre: 'Patata',
+        precio: 1,
+        imagen: 'https://source.unsplash.com/random/500x500/?potato&sig=1'
+        },
+        {
+        id: 2,
+        nombre: 'Cebolla',
+        precio: 1.2,
+        imagen: 'https://source.unsplash.com/random/500x500/?onion&sig=2'
+        },
+        {
+        id: 3,
+        nombre: 'Calabacin',
+        precio: 2.1,
+        imagen: 'https://source.unsplash.com/random/500x500/?zucchini&sig=3'
+        },
+        {
+        id: 4,
+        nombre: 'Fresas',
+        precio: 0.6,
+        imagen: 'https://source.unsplash.com/random/500x500/?burrs&sig=4'
+        }
+        ];
+        let $items = document.querySelector('#items');
+        let carrito = [];
+        let total = 0;
+        let $carrito = document.querySelector('#carrito');
+        let $total = document.querySelector('#total');
+        let $botonVaciar = document.querySelector('#boton-vaciar');
+        // Funciones
+        function renderItems() {
+        for (let info of baseDeDatos) {
+        // Estructura
+        let miNodo = document.createElement('div');
+        miNodo.classList.add('card', 'col-sm-4');
+        // Body
+        let miNodoCardBody = document.createElement('div');
+        miNodoCardBody.classList.add('card-body');
+        // Titulo
+        let miNodoTitle = document.createElement('h5');
+        miNodoTitle.classList.add('card-title');
+        miNodoTitle.textContent = info['nombre'];
+        // Imagen
+        let miNodoImagen = document.createElement('img');
+        miNodoImagen.classList.add('img-fluid');
+        miNodoImagen.setAttribute('src', info['imagen']);
+        // Precio
+        let miNodoPrecio = document.createElement('p');
+        miNodoPrecio.classList.add('card-text');
+        miNodoPrecio.textContent = info['precio'] + '€';
+        // Boton
+        let miNodoBoton = document.createElement('button');
+        miNodoBoton.classList.add('btn', 'btn-primary');
+        miNodoBoton.textContent = '+';
+        miNodoBoton.setAttribute('marcador', info['id']);
+        miNodoBoton.addEventListener('click', anyadirCarrito);
+        // Insertamos
+        miNodoCardBody.appendChild(miNodoImagen);
+        miNodoCardBody.appendChild(miNodoTitle);
+        miNodoCardBody.appendChild(miNodoPrecio);
+        miNodoCardBody.appendChild(miNodoBoton);
+        miNodo.appendChild(miNodoCardBody);
+        $items.appendChild(miNodo);
+        }
+        }
+        function anyadirCarrito () {
+        // Anyadimos el Nodo a nuestro carrito
+        carrito.push(this.getAttribute('marcador'))
+        // Calculo el total
+        calcularTotal();
+        // Renderizamos el carrito
+        renderizarCarrito();
+        }
+        function renderizarCarrito() {
+        // Vaciamos todo el html
+        $carrito.textContent = '';
+        // Quitamos los duplicados
+        let carritoSinDuplicados = [...new Set(carrito)];
+        // Generamos los Nodos a partir de carrito
+        carritoSinDuplicados.forEach(function (item, indice) {
+        // Obtenemos el item que necesitamos de la variable base de datos
+        let miItem = baseDeDatos.filter(function(itemBaseDatos) {
+        return itemBaseDatos['id'] == item;
+        });
+        // Cuenta el número de veces que se repite el producto
+        let numeroUnidadesItem = carrito.reduce(function (total, itemId) {
+        return itemId === item ? total += 1 : total;
+        }, 0);
+        // Creamos el nodo del item del carrito
+        let miNodo = document.createElement('li');
+        miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
+        miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0]['nombre']} - ${miItem[0]['precio']}€`;
+        // Boton de borrar
+        let miBoton = document.createElement('button');
+        miBoton.classList.add('btn', 'btn-danger', 'mx-5');
+        miBoton.textContent = 'X';
+        miBoton.style.marginLeft = '1rem';
+        miBoton.setAttribute('item', item);
+        miBoton.addEventListener('click', borrarItemCarrito);
+        // Mezclamos nodos
+        miNodo.appendChild(miBoton);
+        $carrito.appendChild(miNodo);
+        });
+        }
+        function borrarItemCarrito() {
+        // Obtenemos el producto ID que hay en el boton pulsado
+        let id = this.getAttribute('item');
+        // Borramos todos los productos
+        carrito = carrito.filter(function (carritoId) {
+        return carritoId !== id;
+        });
+        // volvemos a renderizar
+        renderizarCarrito();
+        // Calculamos de nuevo el precio
+        calcularTotal();
+        }
+        function calcularTotal() {
+        // Limpiamos precio anterior
+        total = 0;
+        // Recorremos el array del carrito
+        for (let item of carrito) {
+        // De cada elemento obtenemos su precio
+        let miItem = baseDeDatos.filter(function(itemBaseDatos) {
+        return itemBaseDatos['id'] == item;
+        });
+        total = total + miItem[0]['precio'];
+        }
+        // Formateamos el total para que solo tenga dos decimales
+        let totalDosDecimales = total.toFixed(2);
+        // Renderizamos el precio en el HTML
+        $total.textContent = totalDosDecimales;
+        }
+        function vaciarCarrito() {
+        // Limpiamos los productos guardados
+        carrito = [];
+        // Renderizamos los cambios
+        renderizarCarrito();
+        calcularTotal();
+        }
+        // Eventos
+        $botonVaciar.addEventListener('click', vaciarCarrito);
+        // Inicio
+        renderItems();
+        }
+//.container
+    .row
+        // Elementos generados a partir del JSON
+        main#items.col-sm-8.row
+        // Carrito
+        aside.col-sm-4
+            h2 Carrito
+            // Elementos del carrito
+            ul#carrito.list-group
+            hr
+            // Precio total
+            p.text-right
+                | Total: 
+                span#total
+                | &euro;
+            button#boton-vaciar.btn.btn-danger Vaciar

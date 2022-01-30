@@ -1,0 +1,435 @@
+body {
+  padding: 0px;
+  font   : 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color          : inherit;
+  text-decoration: none !important;
+  transition     : all 0.3s;
+}
+
+.row .col i {
+  color: #000;
+}
+
+.video {
+  width   : 100%;
+  position: relative;
+}
+
+.videoindex {
+  width     : 100%;
+  max-height: 100%;
+}
+
+.videoefecto {
+  position        : absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  top   : 0;
+  bottom: 0;
+  left  : 0;
+  right : 0;
+}
+
+.btn-xl {
+  padding: 1rem 5rem !important;
+}
+
+.content-section {
+  padding-top   : 7.5rem;
+  padding-bottom: 7.5rem;
+}
+
+.content-section-heading h2 {
+  font-size: 3rem;
+}
+
+.content-section-heading h3 {
+  font-size     : 1rem;
+  text-transform: uppercase;
+}
+
+/* Side Menu */
+.imgLogo {
+  width: 60%;
+}
+
+.titulo {
+  font-size: 1.1em;
+}
+
+.separado {
+  display        : flex;
+  justify-content: space-between;
+  align-items    : center;
+}
+.activeOn {
+  display: block;
+}
+
+.active {
+  display: none;
+}
+
+.contDer {
+  display        : flex;
+  justify-content: flex-end;
+}
+
+.btnBlanco {
+  font-size: 25px !important;
+  color    : #fff !important;
+}
+
+.menuDark {
+  background: rgb(26, 26, 26) !important;
+}
+
+.wrapper {
+  display        : flex;
+  text-decoration: none;
+  transition     : all 0.3s;
+
+}
+
+#sidebar {
+  position    : absolute;
+  height      : 100vh;
+  min-width   : 350px;
+  max-width   : 350px;
+  background  : rgb(26, 26, 26);
+  color       : #fff;
+  transition  : all 0.3s;
+  padding-left: 25px;
+}
+
+#sidebar .active {
+  margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+}
+
+#sidebar ul.components {
+  padding: 20px 0;
+}
+
+#sidebar ul li {
+  list-style: none;
+}
+
+#sidebar ul li a {
+  padding        : 25px;
+  font-size      : 1.1em;
+  display        : block;
+  text-decoration: none;
+  color          : #fff;
+
+}
+
+#sidebar ul li a:hover {
+  color     : #000;
+  background: #fff;
+}
+
+#content {
+  width     : 100%;
+  padding   : 20px;
+  transition: all 0.3s;
+}
+
+.imgParallax {
+  background      : #fff fixed no-repeat 50% 50%;
+  background-size : cover;
+  background-color: rgba(99, 28, 109, 0.6);
+}
+
+#services {
+  background-image: url('/images/imagen1.png');
+
+}
+
+
+a {
+  color: black;
+}
+
+.navbar {
+  margin: 5px;
+}
+
+.navbar-brand {
+  color       : white !important;
+  text-shadow : 0 0 3px#000000;
+  margin-right: 0 !important;
+}
+
+@media (max-width: 530px) {
+  .navbar-brand {
+    width: 75% !important;
+  }
+
+  .imgLogo {
+    width: 75%;
+  }
+}
+
+.bg {
+  display         : flex;
+  align-items     : center;
+  background-color: darkblue;
+  width           : 100%;
+  height          : 100px;
+  color           : white;
+}
+
+
+.contenidoQS {
+  padding: 50px;
+  width  : 100%;
+  height : 800px;
+}
+
+.dVideo {
+  display        : flex;
+  justify-content: center;
+  max-width      : 100%;
+}
+
+.videoRec {
+  width: 90%;
+}
+
+@media (max-width: 600px) {
+  .videoRec {
+    width: 100%;
+  }
+}
+
+.contenidoBazar {
+  padding: 50px;
+  width  : 100%;
+  height : auto;
+}
+
+.btnAdm {
+  display        : flex;
+  justify-content: center;
+}
+
+.btnModal {
+  display        : flex;
+  justify-content: space-between;
+  width          : 50%;
+}
+
+.textCard {
+  font-family   : Helvetica;
+  padding-bottom: 10px;
+}
+
+.textCard p {
+  margin: 0 !important;
+}
+
+.cardShadow {
+  border            : 0 !important;
+  -webkit-box-shadow: 5px 5px 30px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow   : 5px 5px 30px 0px rgba(0, 0, 0, 0.75);
+  box-shadow        : 5px 5px 30px 0px rgba(0, 0, 0, 0.75);
+}
+
+.card-footer {
+  font-family: Helvetica;
+}
+
+.btnRosa {
+  border-top: 0,1px solid #000 !important;
+  border-bottom: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+}
+
+.btnRosa:hover {
+  color: #fff !important;
+  background: #f40080 !important;
+}
+
+.opProd {
+  display        : flex;
+  justify-content: space-between;
+  width          : 90%;
+}
+
+.btnAdmBotones {
+  display        : flex;
+  justify-content: space-between;
+  width          : 600px;
+}
+
+.buscarProd {
+  padding: 20px;
+}
+
+.imgQH {
+  background-color: rgba(0, 0, 0, 0.2);
+  position        : relative;
+  top             : 0;
+  left            : 0;
+  width           : 100%;
+  height          : 65vh;
+}
+
+.imgAdd {
+  background-color: rgba(0, 0, 0, 0.2);
+  position        : relative;
+  top             : 0;
+  left            : 0;
+  width           : 100%;
+  height          : 17.5vh;
+}
+
+/* Servicios */
+
+.service-icon {
+  background-color  : #fff;
+  color             : #da73c8;
+  height            : 7rem;
+  width             : 7rem;
+  display           : block;
+  line-height       : 7.5rem;
+  font-size         : 2.25rem;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow        : 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Portafolio item */
+
+.portfolio-item {
+  display  : block;
+  position : relative;
+  overflow : hidden;
+  max-width: 530px;
+  margin   : auto auto 1rem;
+}
+
+.portfolio-item .caption {
+  display         : -webkit-box;
+  display         : -ms-flexbox;
+  display         : flex;
+  height          : 100%;
+  width           : 100%;
+  background-color: rgba(33, 37, 41, 0.2);
+  position        : absolute;
+  top             : 0;
+  bottom          : 0;
+  z-index         : 1;
+}
+
+.portfolio-item .caption .caption-content {
+  color : #fff;
+  margin: auto 2rem 2rem;
+}
+
+.portfolio-item .caption .caption-content h2 {
+  font-size     : 0.8rem;
+  text-transform: uppercase;
+}
+
+.portfolio-item .caption .caption-content p {
+  font-weight: 300;
+  font-size  : 1.2rem;
+}
+
+@media (min-width: 992px) {
+  .portfolio-item {
+    max-width: none;
+    margin   : 0;
+  }
+
+  .portfolio-item .caption {
+    -webkit-clip-path: inset(0px);
+    clip-path        : inset(0px);
+  }
+
+  .portfolio-item .caption .caption-content {
+    -webkit-transition: opacity 0.25s;
+    transition        : opacity 0.25s;
+    margin-left       : 5rem;
+    margin-right      : 5rem;
+    margin-bottom     : 5rem;
+  }
+
+  .portfolio-item:hover .caption {
+    background-color : rgba(29, 128, 159, 0.9);
+    -webkit-clip-path: inset(2rem);
+    clip-path        : inset(2rem);
+  }
+}
+
+.btn {
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.1);
+  box-shadow        : 0px 3px 3px 0px rgba(0, 0, 0, 0.1);
+  font-weight       : 700;
+}
+
+/* Mapa */
+
+.map {
+  height: 40rem;
+}
+
+/* Footer */
+
+.page-section {
+  padding-top   : 6rem;
+  padding-bottom: 6rem;
+  background    : rgb(240, 240, 240);
+}
+
+.footer {
+  height: 8rem;
+}
+
+#footer {
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+  text-align     : center;
+}
+
+.errores{
+  font-size: 13px;
+  color: red;
+  padding: 0px;
+  margin: 0px;
+}
+
+.social {
+  color             : #000!important;
+  height            : 7rem;
+  width             : 7rem;
+  line-height       : 7.5rem;
+  font-size         : 2.25rem;
+
+}
+
+.social a {
+  color             : #1a1a1a!important;
+  font-size         : 2.25rem;
+  cursor: pointer !important;
+}
+
+.social a:hover{
+  font-size         : 2.25rem !important;
+  color: #f40080 !important;
+  cursor: pointer !important;
+} 
+.social a:focus {
+  font-size         : 2.25rem !important;
+  color: #f40080 !important;
+  cursor: pointer !important;
+}

@@ -1,0 +1,233 @@
+include layout
+
+html
+    head
+        link(href='https://vjs.zencdn.net/7.8.2/video-js.min.css' rel='stylesheet')
+        script(src='https://vjs.zencdn.net/7.8.2/video.min.js')
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js' integrity='sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW' crossorigin='anonymous')
+        script(src="/javascripts/sidebar2.js")  
+
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+block content
+    section#portadaProd.sectionRec.imgParallax2
+    .menuSticky
+        .container
+            .row.navB
+                //.col-lg-6.col-md-6
+                    form.form-inline(action='/productos/bazar/lista' method='post' role='form')
+                        input.busqueda(type='text' placeholder='Buscar producto' aria-label='Buscar' name='codigoId')
+                        button.btn.btn-light(type='submit') Buscar
+                .col-lg-8.col-md-8.col-sm-8.col-8.py-1
+                    form(action='/productos/bazar/lista' method='post' role='form')
+                        input.busqueda.form-control.form-control-lg.form-control-borderless(placeholder='Buscar producto' type='search' aria-label='Buscar' name='codigoId')
+                    //input.form-control.form-control-lg.form-control-borderless(action='/productos/bazar/lista' method='post' role='form' type='search' placeholder='Buscar')
+                .col-lg-2.col-md-4.col-sm-4.col-4.py-1
+                    button#carrito.btn.btn-lg.btn-block.btn-light(type='submit')
+                        i.fas.fa-shopping-cart
+                .col-lg-2.col-md-8.col-sm-8.col-8.py-1
+                    a(href='/productos/new')
+                        button.btn.btn-lg.btn-block.btn-light(type='button') Agregar
+    .contenidoBAZAR.d-flex.row.mx-0                                  
+        #sidebarCarrito.col.mx-0.carritoCompleto.active
+            .row.d-flex.align-items-center.justify-content-center
+                .col-lg-9.col-sm-10.col-s-10.col-8.pt-5.pb-2
+                    | Distribuidora Energía
+                .col-lg-2.col-sm-2.col-s-2.col-2.pt-5.pb-2   
+                    button#carritoCerrar.btn.btnBlanco.col-sm-2(type='button')
+                        i.fas.fa-times
+            .row.d-flex.carritoSidebar.align-items-center.overflow-auto.justify-content-center
+            .row.d-flex.align-items-center.justify-content-center.pt-3
+                p.pl-4 Precio total 
+                p.row.d-flex.px-5.shoppingCartTotal 0.00 USD                    
+        .contenidoBazar.col.mx-0    
+            .row.carouselQS
+                .col-12.col-lg-12.d-flex.justify-content-center
+                    #carouselExampleFade.carousel.slide.carousel-fade(data-ride='carousel')
+                        .carousel-inner
+                            tbody
+                                each item, elementpdf in pdf
+                                    if(elementpdf === 0)
+                                        .carousel-item.active
+                                            img.d-block.img-fluid.mx-auto.px-4.min-vw-80(src=`/images/${item.imagenes}` alt=`${item.alt}`)
+                                    else
+                                        .carousel-item
+                                            img.d-block.img-fluid.mx-auto.px-4.min-vw-80(src=`/images/${item.imagenes}` alt=`${item.alt}`)
+                        a.carousel-control-prev(href='#carouselExampleFade' role='button' data-bs-slide='prev')
+                            span.carousel-control-prev-icon(aria-hidden='true')
+                            span.sr-only Previous
+                        a.carousel-control-next(href='#carouselExampleFade' role='button' data-bs-slide='next')
+                            span.carousel-control-next-icon(aria-hidden='true')
+                            span.sr-only Next
+            br
+            //.row.btnAdm
+                h1= title
+            //.row.btnAdm
+                main.inner.cover.buscarProd(role='main')
+                    form.form-inline.mt-2.mt-md-0(action='/productos/bazar/lista' method='post' role='form')
+                        p.text-center.mt-sm-2 Ingrese el código del producto para buscar
+                        input.form-control.mr-sm-2.ml-sm-2(type='text' placeholder='Código de producto' aria-label='Buscar' name='codigoId')
+                        button.btn.btn-light.my-2.my-sm-0(type='submit') Buscar
+            hr
+            //.container.mx-0
+                .row
+                    .col-lg-12        
+                        h2 Listado de productos
+            br
+
+            .container
+                .row.mx-0.carritoItem
+                    - var x = 0                                               
+                    tbody
+                        each element in productos                                        
+                            - var y = 1
+                            - x++
+                            - var c = `AnadirCarrito${x}`
+                            .col.d-flex.justify-content-center.item
+                                .card.cardShadow.border-dark.mx-auto.my-3(style='max-width: 22rem; min-width: 18rem; min-height: 27rem;')
+                                    //.card-header.btnAdm
+                                        strong= element.nombre
+                                    .card-body.p-0
+                                        .text-center
+                                            img.img-fluid.itemImage(src=`/images/${element.imagen}`)
+                                            br
+                                            hr                                    
+                                            br
+                                        .textCard.text-left.pl-4
+                                            p.itemCodigo= element.codigo
+                                            .h4.itemNombre= element.nombre                                        
+                                            if element.capacidad != null
+                                                if element.capacidad != 0
+                                                    p=  element.capacidad + element.medida       
+                                            //pre= `Semana: ${element.semana}`
+                                            p= `De: $${element.precioNormal}`
+                                            .h3.itemPrecio(id=`precio`)= `A: $${element.precioDescuento}`
+                                            //p= `Descuento: ${element.descuento}`
+                                            //pre= `Stock: ${element.stock}`
+                                    .card-footer.bg-transparent.p-0
+                                        a(href=`/productos/bazar/id/${element._id}`)
+                                            button.btn.btn-light.btn-block.my-2.my-sm-0.actualizarProd(type='button') Actualizar
+                                        if (element.stock == "Hay stock")
+                                            button.btn.btn-block.btn-outline-dark.btnRosa.py-2(type='button' data-toggle='modal' data-target=`#${c}` onclick=`cantidad(${x},${element.precioDescuento})`)                                    
+                                                strong.h4 Añadir 
+                                                svg.bi.bi-cart4(xmlns='http://www.w3.org/2000/svg' width='35' height='35' fill='currentColor' viewbox='0 0 25 25')
+                                                    path(fill-rule='evenodd' d='M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z')
+                                        else 
+                                            button.btn.btn-block.btn-outline-danger.py-2
+                                                strong.h4 No hay Stock                                 
+
+                            .modal.fade(id=`${c}` data-backdrop='static' data-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true')
+                                .modal-dialog.modal-dialog-scrollables.item
+                                    .modal-content.bg-light
+                                        p.itemCodigo.active= element.codigo
+                                        p.itemNombre.active= element.nombre
+                                        p.itemPrecio.active= element.precioDescuento
+                                        p.itemId.active= element._id
+                                        .modal-header
+                                            h5#staticBackdropLabel.modal-title Agregar productos al carrito
+                                            button.close(type='button' data-dismiss='modal' aria-label='Close')
+                                                span(aria-hidden='true') &times;
+                                        .modal-body
+                                            .row.py-3
+                                                .col-md-6
+                                                    .h6 Precio por unidad
+                                                .col-md-6
+                                                    .h7(id=`precio${x}`)= `$${element.precioDescuento}`
+                                            .row.py-3
+                                                .col-md-6
+                                                    .h6 Cantidad
+                                                .col-md-6
+                                                    .input-group.mb-3(style='max-width: 120px;')
+                                                        .input-group-prepend
+                                                            button.btn.btnRosa.btn-sm(id=`minus-btn${x}`)
+                                                                i.fa.fa-minus
+                                                        input.form-control.text-center.itemCantidad(id=`qty_input${x}` type='number' value=`${y}` min='1')
+                                                        .input-group-append
+                                                            button.btn.btnRosa.btn-sm(id=`plus-btn${x}`)
+                                                                i.fa.fa-plus
+                                            .row.py-3
+                                                .col-md-6
+                                                    .h6 Precio total
+                                                .col-md-6
+                                                    //- var z = element.precioDescuento * y
+                                                    //input.form-control.text-center(id=`resultado${x}` type='number' value=`${element.precioDescuento}` min='1')
+                                                    h6(id=`resultado${x}`)= `$${element.precioDescuento}`
+                                            .btnAdm  
+                                                .btnModal
+                                                    button.btn.btnRosa.AddToCart.itemButtonC(type='button' data-dismiss='modal') Agregar
+                                                    button.btn.btn-secondary(type='button' data-dismiss='modal') Cancelar
+
+
+
+        .col-xl-12.col-lg-12.col-sm-12.px-0
+            section#contacto.page-section
+                .container.p-5
+                    .row.justify-content-center
+                        .col-lg-8.text-center
+                            h2.mt-0 ¡Estemos en contacto!
+                            .divider.my-4
+                            p.text-muted.mb-5
+                                | ¡Déjanos saber cualquier inquietud que hayas tenido, puedes contactarte llamando a este número o mandando un correo electrónico!
+                    .row
+                        .col-lg-4.ml-auto.text-center.mb-5.mb-lg-0
+                            i.fas.fa-phone.fa-3x.mb-3.text-muted
+                            div +593 (02) 2460600
+                        .col-lg-4.mr-auto.text-center
+                            i.fas.fa-envelope.fa-3x.mb-3.text-muted
+                            // Make sure to change the email address in anchor text AND the link below!
+                            a.d-block(href='mailto:energiad@gmail.com') energiad@gmail.com
+                        .col-lg-12.text-center.pt-5.social
+                            a.px-3(href='https://www.facebook.com/TupperwareDistribuidoraEnergiaUio' target="blank")
+                                i.fab.fa-facebook
+                            
+                            a.px-3(href='https://www.youtube.com/channel/UCUoalGYa0MtZRB0dFoay0pw' target="blank")
+                                i.fab.fa-youtube
+                            
+                            a.px-3(href='https://www.instagram.com/tupperwareenergia.oficial/' target="blank")
+                                i.fab.fa-instagram
+    // Footer
+    footer#portadaProd.imgParallax.footer.bg-light.py-5
+        .container.text-justify
+            h6#footer.text-light.font-weight-bold Copyright &copy; 2020 - Tupperware Distribuidora Energía
+
+    script.
+        /*$(document).ready(function(){
+            $('#qty_carrito').prop('disabled', true);
+            $('plus-btnC').click(function(){
+                $('#qty_carrito').val(parseInt($('#qty_carrito').val()) + 1 );
+            });
+                $('minus-btnC').click(function(){
+                    $('#qty_carrito').val(parseInt($('#qty_carrito').val()) - 1 );
+                    if ($('#qty_carrito').val() == 0) {
+                        $('#qty_carrito').val(1);
+                    }
+                });
+            console.log('Entra')
+        });*/
+        function cantidad(x, y) {
+            var precio = $('#precio'+x).val();            
+            $('#qty_input'+x).prop('disabled', true);
+            var val = $('#qty_input'+x).val();
+            //var result;           
+            $('#plus-btn'+x).click(function(){
+                $('#qty_input'+x).val(++val);
+                result = y * val;
+                condecimal = result.toFixed(2);
+                $('#resultado'+x).text('$'+condecimal);
+                console.log(val);
+            });
+            $('#minus-btn'+x).click(function(){
+                if (val >= 2) {
+                    $('#qty_input'+x).val(--val);
+                    result = y * val;
+                    condecimal = result.toFixed(2);
+                    $('#resultado'+x).text('$'+condecimal);                    
+                }                                                        
+                console.log(val);
+            });
+        }
+    script(src="/javascripts/carshop.js")
+
+
+

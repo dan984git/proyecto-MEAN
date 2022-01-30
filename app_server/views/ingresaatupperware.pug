@@ -1,0 +1,118 @@
+html
+    head
+
+
+include layout
+
+block content
+    section#portadaIT.sectionQH.imgParallax2
+    .pt-5.container
+        .text-center
+            h2 Opciones de Ingreso
+            p ¡Todas las opciones para que te puedas inscribir con nosotros!
+    tbody
+        each element in opciones
+            .row.mx-0.opciones.py-5
+                .cardopciones
+                    .image
+                        img.cent(src=`/images/${element.imagen}`)
+                    .details
+                        .center
+                            h1= element.opcion
+                            p= element.descripcion
+
+                            h5= element.vigencia
+    //.row.mx-0
+        .col
+            .container.IT
+                div.fond 
+                div.card
+                    div.thumbnail
+                        img.left(src="/images/imagen1.png")
+                    div.right
+                        h1 Opción 1
+                        div.separator
+                        p Magnesium is one of the six essential macro-minerals that is required by the body for energy production and synthesis of protein and enzymes. It contributes to the development of bones and most importantly it is responsible for synthesis of your DNA and RNA. A new report that has appeared in theBritish Journal of Cancer, gives you another reason to add more magnesium to your diet...
+                    h5 15-20
+                    h6 de Diciembre
+    .pt-5.container
+        .text-center
+            h2 Inscríbete
+            p ¡Forma parte de nuestra fuerza de venta y gana mucho más!       
+    .row.py-5.mx-0
+        .col-md-2
+        .col-md-8
+            .card
+                .card-body
+                    form(action='/ingresa-a-tupperware/add' method='post' role='form')
+                        .row
+                            .col-sm-12.col-md-6                            
+                                .form-group
+                                    label(for='nombre') Nombre
+                                    - var eN = errorNombre
+                                    - var eA = errorApellido
+                                    if (eN != null)
+                                        p.errores #{errorNombre}
+                                    input#nombre.form-control(name='nombre' type='text' value=nombre placeholder="")
+                            .col-sm-12.col-md-6                          
+                                .form-group
+                                    label(for='apellido') Apellido
+                                    if (eA != null)
+                                        p.errores #{errorApellido}
+                                    input#nombre.form-control(name='apellido' type='text' value=apellido placeholder="")
+                        .row
+                            .col-sm-12.col-md-6 
+                                .form-group
+                                    label(for='correo') Correo Electrónico
+                                    input#nombre.form-control(name='correo' type='text' value=correo placeholder="")
+                            .col-sm-12.col-md-6 
+                                .form-group
+                                    label(for='telefono') Teléfono
+                                    input#nombre.form-control(name='telefono' type='text' value=telefono placeholder="")
+                        .row
+                            .col-sm-12.col-md-6 
+                                .form-group
+                                    label(for='cedula') Cédula
+                                    input#nombre.form-control(name='cedula' type='text' value=cedula placeholder="")
+                            .col-sm-12.col-md-6 
+                                .form-group
+                                    label(for='ciudad') Ciudad
+                                    input#nombre.form-control(name='ciudad' type='text' value=ciudad placeholder="")
+                        .row
+                            .col-sm-12.col-md-6 
+                                .form-group
+                                    label(for='opcioningreso') Opción de ingreso
+                                    input#nombre.form-control(name='opcioningreso' type='text' value=opcioningreso placeholder="")                        
+                            .col-sm-12.col-md-6
+                                br
+                                button.btn.btn-outline-dark.btn-block.btn-lg.mx-auto(type='submit') Incríbete
+
+    section#contacto.page-section
+        .container.p-5
+            .row.justify-content-center
+                .col-lg-8.text-center
+                    h2.mt-0 ¡Estemos en contacto!
+                    .divider.my-4
+                    p.text-muted.mb-5
+                        | ¡Déjanos saber cualquier inquietud que hayas tenido, puedes contactarte llamando a este número o mandando un correo electrónico!
+            .row
+                .col-lg-4.ml-auto.text-center.mb-5.mb-lg-0
+                    i.fas.fa-phone.fa-3x.mb-3.text-muted
+                    div +593 (02) 2460600
+                .col-lg-4.mr-auto.text-center
+                    i.fas.fa-envelope.fa-3x.mb-3.text-muted
+                    // Make sure to change the email address in anchor text AND the link below!
+                    a.d-block(href='mailto:energiad@gmail.com') energiad@gmail.com
+                .col-lg-12.text-center.pt-5.social
+                    a.px-3(href='https://www.facebook.com/TupperwareDistribuidoraEnergiaUio' target="blank")
+                        i.fab.fa-facebook
+                    
+                    a.px-3(href='https://www.youtube.com/channel/UCUoalGYa0MtZRB0dFoay0pw' target="blank")
+                        i.fab.fa-youtube
+                    
+                    a.px-3(href='https://www.instagram.com/tupperwareenergia.oficial/' target="blank")
+                        i.fab.fa-instagram
+    // Footer
+    footer#portadaIT.imgParallax.footer.bg-light.py-5
+        .container.text-justify
+            h6#footer.text-light.font-weight-bold Copyright &copy; 2020 - Tupperware Distribuidora Energía

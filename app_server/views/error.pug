@@ -1,0 +1,14 @@
+include layout
+
+block content
+  .imgAdd
+  .contenidoQS
+    .alert.alert-danger.alert-dismissable.fade.show
+      a.close(href='#' data-dismiss='alert' aria-label='close') &times;
+      strong #{error}
+      |  El código de producto: 
+      strong #{codigo} 
+      |  #{mensaje}
+  footer.bg-dark.bg
+    .container
+        h1= footer 

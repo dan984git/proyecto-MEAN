@@ -1,0 +1,64 @@
+include layout
+
+block content
+    section#portadaProd.sectionRec.imgParallax2
+            
+        //.row.btnAdm
+            .opProd
+                a(href='https://tupperware.ipapercms.dk/Tupperware/Ecuador/catalogo-9/?page=1' target='blank')
+                    button.btn.btn-light(type='button' style='width: 800px; height: 600px;') Catálogo
+                a(href='/productos/bazar/lista')
+                    button.btn.btn-light(type='button' style='width: 800px; height: 600px;') Bazar 
+    section.container-fluid.py-5.botonesProd   
+        h1= title
+        br
+        hr   
+        .row
+            .col-xl-6.col-md-12.col-sm-12.col-12.py-5.divIMG
+                .hover-bg
+                    a(href='https://tupperware.ipapercms.dk/Tupperware/Ecuador/catalogo-9/?page=1' target='blank')
+                        .hover-text
+                            h3
+                                | CATÁLOGO                        
+                            //p
+                                | Descripción de la foto que quieres que se muestre 
+                        img.desvanecer.img-fluid(src='/images/imagen1.png')
+            .col-xl-6.col-md-12.col-sm-12.col-12.py-5.divIMG
+                .hover-bg
+                    a(href='/productos/bazar/lista')
+                        .hover-text
+                            h3
+                                | BAZAR
+                            //p
+                                | Descripción de la foto que quieres que se muestre
+                        img.desvanecer.img-fluid(src='/images/imagen1.png')
+
+    section#contacto.page-section
+        .container.p-5
+            .row.justify-content-center
+                .col-lg-8.text-center
+                    h2.mt-0 ¡Estemos en contacto!
+                    .divider.my-4
+                    p.text-muted.mb-5
+                        | ¡Déjanos saber cualquier inquietud que hayas tenido, puedes contactarte llamando a este número o mandando un correo electrónico!
+            .row
+                .col-lg-4.ml-auto.text-center.mb-5.mb-lg-0
+                    i.fas.fa-phone.fa-3x.mb-3.text-muted
+                    div +593 (02) 2460600
+                .col-lg-4.mr-auto.text-center
+                    i.fas.fa-envelope.fa-3x.mb-3.text-muted
+                    // Make sure to change the email address in anchor text AND the link below!
+                    a.d-block(href='mailto:energiad@gmail.com') energiad@gmail.com
+                .col-lg-12.text-center.pt-5.social
+                    a.px-3(href='https://www.facebook.com/TupperwareDistribuidoraEnergiaUio' target="blank")
+                        i.fab.fa-facebook
+                    
+                    a.px-3(href='https://www.youtube.com/channel/UCUoalGYa0MtZRB0dFoay0pw' target="blank")
+                        i.fab.fa-youtube
+                    
+                    a.px-3(href='https://www.instagram.com/tupperwareenergia.oficial/' target="blank")
+                        i.fab.fa-instagram
+    // Footer
+    footer#portadaProd.imgParallax.footer.bg-light.py-5
+        .container.text-justify
+            h6#footer.text-light.font-weight-bold Copyright &copy; 2020 - Tupperware Distribuidora Energía

@@ -1,0 +1,97 @@
+include layout
+
+block content
+    section#portadaCU.sectionQH.imgParallax2
+    section#contact.map
+        iframe(width='100%' height='100%' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7970128548823!2d-78.49400588480242!3d-0.1872523998633803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59baa40af5b85%3A0xc15aab119735b7b!2sAv%20Mariana%20de%20Jesus%20y%2010%20de%20Agosto%20Tupperware%20DISTRIBUIDORA%20ENERG%C3%8DA!5e0!3m2!1ses!2sec!4v1606101576702!5m2!1ses!2sec')
+        br
+        small
+            a(href='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7970128548823!2d-78.49400588480242!3d-0.1872523998633803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59baa40af5b85%3A0xc15aab119735b7b!2sAv%20Mariana%20de%20Jesus%20y%2010%20de%20Agosto%20Tupperware%20DISTRIBUIDORA%20ENERG%C3%8DA!5e0!3m2!1ses!2sec!4v1606101576702!5m2!1ses!2sec')
+        br
+    
+    section.contact-area
+        .container
+            .row
+                .col-12
+                    .contact-content
+                        .row
+                            // Contact Information
+                            .col-12.col-lg-5
+                                .contact-information
+                                    .section-heading.text-left
+                                        span Tupperware
+                                        h3 Distribuidora Energía
+                                        p.mt-30
+                                            br
+                                            |   Déjanos saber qué estas buscando, puedes encontrarnos en nuestras oficinas o redes sociales.
+                                    // Contact Social Info
+                                    .contact-social-info.d-flex.mb-4
+                                        a(href='https://www.facebook.com/TupperwareDistribuidoraEnergiaUio' target="blank")
+                                            i.fab.fa-facebook(aria-hidden='true' viewbox='0 0 300 300')
+                                        a(href='https://www.youtube.com/channel/UCUoalGYa0MtZRB0dFoay0pw' target="blank")
+                                            i.fab.fa-youtube(aria-hidden='true' viewbox='0 0 300 300')                                        
+                                        a(href='https://www.instagram.com/tupperwareenergia.oficial/' target="blank")
+                                            i.fab.fa-instagram(aria-hidden='true' viewbox='0 0 300 300')
+                                    // Single Contact Info
+                                    .single-contact-info.d-flex
+                                        .contact-icon
+                                            .icon-location-pin
+                                        p
+                                            | Av. 10 de Agosto N32-73 y Av. Mariana de Jesus
+                                            br
+                                            |  Quito, Ecuador
+                                    // Single Contact Info
+                                    .single-contact-info.d-flex
+                                        .contact-icon
+                                            .icon-phone
+                                        p
+                                            | Oficina: +(593) 999925984 - Darwin Burbano
+                                            br
+                                            |  Celular: +(593) 992423164 - Irina Pozo
+                                    // Single Contact Info
+                                    .single-contact-info.d-flex
+                                        .contact-icon
+                                            .icon-notebook
+                                        p energiad@gmail.com
+                            // Contact Form Area
+                            .col-12.col-lg-7
+                                .contact-form-area
+                                    form(action='/send-email' method='POST')
+                                        input#name.form-control(type='text' name='nombre' placeholder='Nombre' required='true')
+                                        input#name.form-control(type='text' name='asunto' placeholder='Asunto' required='true')
+                                        - var eT = errorTelefono
+                                        if (eT != null)
+                                            p.errores #{errorTelefono}
+                                        input#email.form-control(type='number' name='celular' placeholder='Celular' required='true')
+                                        textarea#message.form-control(name='mensaje' cols='30' rows='10' placeholder='Mensaje' required='true')
+                                        button.btn.btn-outline-dark.btn-block.btn-lg(type='submit') Enviar
+
+    section#contacto.page-section
+        .container.p-5
+            .row.justify-content-center
+                .col-lg-8.text-center
+                    h2.mt-0 ¡Estemos en contacto!
+                    .divider.my-4
+                    p.text-muted.mb-5
+                        | ¡Déjanos saber cualquier inquietud que hayas tenido, puedes contactarte llamando a este número o mandando un correo electrónico!
+            .row
+                .col-lg-4.ml-auto.text-center.mb-5.mb-lg-0
+                    i.fas.fa-phone.fa-3x.mb-3.text-muted
+                    div +593 (02) 2460600
+                .col-lg-4.mr-auto.text-center
+                    i.fas.fa-envelope.fa-3x.mb-3.text-muted
+                    // Make sure to change the email address in anchor text AND the link below!
+                    a.d-block(href='mailto:energiad@gmail.com') energiad@gmail.com
+                .col-lg-12.text-center.pt-5.social
+                    a.px-3(href='https://www.facebook.com/TupperwareDistribuidoraEnergiaUio' target="blank")
+                        i.fab.fa-facebook
+                    
+                    a.px-3(href='https://www.youtube.com/channel/UCUoalGYa0MtZRB0dFoay0pw' target="blank")
+                        i.fab.fa-youtube
+                    
+                    a.px-3(href='https://www.instagram.com/tupperwareenergia.oficial/' target="blank")
+                        i.fab.fa-instagram
+    // Footer
+    footer#portadaCU.imgParallax.footer.bg-light.py-5
+        .container.text-justify
+            h6#footer.text-light.font-weight-bold Copyright &copy; 2020 - Tupperware Distribuidora Energía

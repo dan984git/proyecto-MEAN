@@ -1,0 +1,95 @@
+<!--<div id="portfolio">
+    <div class="section-title text-center center">
+        <div class="overlay">
+            <h2>Gallery</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="categories">
+                <ul class="cat">
+                    <li>
+                        <ol class="type">
+                            <li><a href="#" data-filter=".breakfast">Recetas</a></li>
+                            <li><a href="#" data-filter=".lunch">Demostraciones</a></li>
+                            <li><a href="#" data-filter=".dinner">Video de productos</a></li>
+                        </ol>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>-->
+<div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-4 recetas" *ngFor='let element of recetas'>
+        <div class="portfolio-item">
+            <div class="hover-bg">
+                <a href='/que-hacemos/recetas/{{element._id}}'>
+                    <div class="hover-text">
+                        <h4>{{element.nombre}}</h4>
+                    </div>
+                    <img src='/images/portfolio/{{element.imagen}}' class="img-fluid" alt='{{element.nombre}}'>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--</div>
+</div>
+<hr class='m-0'>
+<div class='resume-section p-3 p-lg5 d-flex justify-content-center'>
+    <div class='w-100'>
+        <h2 class='mb-5' id='premios'>Historia</h2>
+        <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid
+            skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking,
+            free climbing, and kayaking.</p>
+        <p class='mb-0'>When forced indoors, I follow a number of sci-fi and fantasy genre movies and television
+            shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest
+            technology advancements in the front-end web development world.</p>
+    </div>
+</div>
+<hr class='m-0'>
+<div class='resume-section p-3 p-lg5 d-flex justify-content-center'>
+    <div class='w-100'>
+        <h2 class='mb-5' id='premios'>Premios y certificados</h2>
+        <i class='fa-li fa fa-trophy text-warning'></i>
+        <p>Google Analytics Certified Developer</p><br>
+        <i class='fa-li fa fa-trophy text-warning'>1st Place - University of Colorado Boulder - Emerging Tech
+            Competition 2009</i><br>
+        <i class='fa-li fa fa-trophy text-warning'>1st Place - University of Colorado Boulder - Emerging Tech
+            Competition 2009</i><br>
+        <i class='fa-li fa fa-trophy text-warning'>1st Place - University of Colorado Boulder - Emerging Tech
+            Competition 2009</i><br>
+        <i class='fa-li fa fa-trophy text-warning'>1st Place - University of Colorado Boulder - Emerging Tech
+            Competition 2009</i><br>
+        <i class='fa-li fa fa-trophy text-warning'>1st Place - University of Colorado Boulder - Emerging Tech
+            Competition 2009</i><br>
+    </div>
+</div>
+<section id='contacto' class='page-section'>
+    <div class='container p-5'>
+        <div class='row justify-content-center'>
+            <div class='col-lg-8 text-center'>
+                <h2 class='mt-0'>¡Estemos en contacto!</h2>
+                <div class='divider my-4'></div>
+                <p class='text-muted mb-5'>¡Déjanos saber cualquier inquietud que hayas tenido, puedes contactarte
+                    llamando a este número o mandando un correo electrónico!</p>
+
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-lg-4 ml-auto text-center mb-5 mb-lg-0'>
+                <i class='fas fa-phone fa-3x mb-3 text-muted'></i>
+                <p>+593 (02) 2460600</p>
+            </div>
+            <div class='col-lg-4 ml-auto text-center'>
+                <i class='fas fa-envelope fa-3x mb-3 text-muted'></i>
+                <a class='d-block' href="mailto:energiad@gmail.com">energiad@gmail.com</a>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class='imgParallax footer bg-light py-5'>
+    <div class='container text-justify'>
+        <h6 class='text-light font-weight-bold'>Copyright &copy; 2020 - Tupperware Distribuidora Energía</h6>
+    </div>
+</footer>-->
