@@ -16,10 +16,15 @@ require('./security');
 //require('./productos_bazar');
 
 //const dbURI = 'mongodb://localhost/twBD';
-let dbURI = 'mongodb://localhost/twBD';
+let dbURI = 'mongodb://localhost/twBD'; //mongodb://localhost/twBD
+
 if (process.env.NODE_ENV === 'production') {  
     dbURI = process.env.MONGODB_URI;
 }
+
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });//GIT change
 
 // BASE DE DATOS - CONEXION NOMBRADA
